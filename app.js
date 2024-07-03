@@ -10,6 +10,7 @@ const cors = require('cors'); // Importer cors
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
+const recettesRouter = require('./routes/recettes');
 
 const app = express();
 
@@ -24,5 +25,6 @@ mongoose.connect(process.env.DATABASE_URL).then(() => {console.log("Connected wi
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/recettes', recettesRouter);
 
 module.exports = app;

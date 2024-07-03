@@ -12,7 +12,15 @@ router.get('/', async (req, res, next) => {
     cooking_time: 10,
     dificuty: 1,
     price: 2,
-    ingredients: [],
+    ingredients: [
+      {name: "sel"},
+      {name: "poivre",},
+      {name: "Gruyère", number: 50,},
+      {name: "Crème", number: 15,},
+      {name: "Lardon", number: 90,},
+      {name: "Pate", number: 350,},
+      {name: "oeuf", number: 1,},
+    ],
     instructions: ["Appeler maman", "Manger tes mors"],
   })
   await newRecette.save()
