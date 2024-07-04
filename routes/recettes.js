@@ -118,5 +118,17 @@ router.patch('/:id', async (req, res) => {
   }
 });
 
+// Route pour obtenir une recette par ID
+router.get('/:id', async (req, res) => {
+  try {
+    const recette = await Recette.findById(req.params.id);
+    if (!recette) {
+      return res.status(404).json({ message: 'Recette non trouvée' });
+    }
+    res.json(recette);
+  } catch (err) {
+    res.status(500).json({ message: err.message });
+  }
+});
 
 module.exports = router;
