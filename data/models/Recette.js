@@ -7,23 +7,27 @@ const recetteSchema = new mongoose.Schema({
     },
     preparation_time: {
         required: false,
-        type: Number,
+        type: String,
     },
     rest_time: {
         required: false,
-        type: Number,
+        type: String,
     },
     cooking_time: {
         required: false,
-        type: Number,
+        type: String,
     },
     dificuty: {
         required: true,
-        type: Number,
+        type: String,
     },
     price: {
         required: true,
-        type: Number,
+        type: String,
+    },
+    image: {
+      required: true,
+      type: String,
     },
     ingredients: {
         required: true,
@@ -33,7 +37,7 @@ const recetteSchema = new mongoose.Schema({
                 type: String,
             },
             number: {
-                type: Number,
+                type: String,
                 required: false,
             }
         }]
@@ -41,7 +45,7 @@ const recetteSchema = new mongoose.Schema({
     instructions: {
         required: true,
         type: [String],
-    }
+    },
 });
 
 const Recette = mongoose.model('Recette', recetteSchema);
