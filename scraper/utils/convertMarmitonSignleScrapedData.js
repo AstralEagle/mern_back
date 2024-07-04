@@ -38,6 +38,7 @@ async function convertMarmitonSignleScrapedData(data) {
             return $(element).find('p').text().trim()
         
         })
+        
 
         const instructions = await Promise.all(instructionsPromise);
 
