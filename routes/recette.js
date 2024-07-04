@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-const fetchMarmitonData = require('../scraper/scraper');
+const {fetchMarmitonData} = require('../scraper/scraper');
 const convertMarmitonScrapedData = require('../scraper/utils/convertMarmitonScrapedData');
 
 /* GET recette to scrap. */
@@ -9,12 +9,6 @@ router.get('/', async function(req, res, next) {
   try {
     const dataMarmitonData = await fetchMarmitonData(keyword);
     const convertedMarmitonScrapedData = await convertMarmitonScrapedData(dataMarmitonData)
-    
-    console.log(convertedMarmitonScrapedData);
-
-
-
-
     res.json(convertedMarmitonScrapedData);
   } catch (error) {
     res.status(500).send('Erreur lors de la récupération des données');
