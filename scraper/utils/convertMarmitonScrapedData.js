@@ -11,7 +11,7 @@ async function convertMarmitonScrapedData(data) {
 
         const recipeResultsPromises =  results.map(async (element, index) => {
             const name = $(element).find('.recipe-card__title').text().trim()
-            const image = $(element).find('img').attr('data-srcset')
+            const image = `https://${$(element).find('img').attr('data-srcset').split(' ')[2].split('https://')[1]}`
             const recettelink = $(element).find('.recipe-card-link').attr('href')
 
             const singleMarmitonData = await fetchSingleMarmitonData(recettelink)
