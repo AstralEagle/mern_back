@@ -23,6 +23,7 @@ router.post('/', async (req, res) => {
     price: req.body.price,
     ingredients: req.body.ingredients,
     instructions: req.body.instructions,
+    image: req.body.image,
   });
 
   try {
@@ -60,7 +61,7 @@ router.delete('/:id', async (req, res) => {
     if (!recette) {
       return res.status(404).json({ message: 'Recette non trouvée' });
     }
-    await recette.remove();
+    await recette.deleteOne();
     res.json({ message: 'Recette supprimée' });
   } catch (err) {
     res.status(500).json({ message: err.message });
